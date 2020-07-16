@@ -51,7 +51,7 @@ module.exports = {
                 }
             }
         },
-        "/client/:id": {
+        "/client/{clientId}": {
             "put": {
                 tags: ['Client'],
                 description: "Update Client",
@@ -66,7 +66,39 @@ module.exports = {
                         }
                     }
                 },
-                parameters: [],
+                parameters: [{
+                    'in': 'path',
+                    'name': 'clientId',
+                    'schema': {
+                        'type': 'integer',
+                        'required': 'true'
+                    }
+                }],
+                responses: {
+                    "200": {
+                        description: "success of register client and agency",
+                        "content": {
+                            "application/json": {
+                                examples: response.put_client
+                            }
+                        }
+                    }
+                }
+
+            }
+        },
+        "/clients/{maxIncome}": {
+            "get": {
+                tags: ['Client',],
+                description: "Fetch Client with max income with respect to agency name",
+                parameters: [{
+                    'in': 'path',
+                    'name': 'maxIncome',
+                    'schema': {
+                        'type': 'integer',
+                        'required': 'true'
+                    }
+                }],
                 responses: {
                     "200": {
                         description: "success of register client and agency",
@@ -80,5 +112,6 @@ module.exports = {
 
             }
         }
+
     }
 }

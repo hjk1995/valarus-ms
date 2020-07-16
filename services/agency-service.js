@@ -2,6 +2,7 @@
 
 const { bcrypt, logger, httpStatusCode, generateSuccessResponse, generateErrorResponse } = require('../lib/utils');
 const agency = require('../models/agency');
+const client = require('../models/client');
 
 const addAgency = async (body) => {
     try {
@@ -40,13 +41,14 @@ const updateAgency = async (id, body) => {
 
 const deleteAgency = async (id, body) => {
     try {
-        let result = await user.update({ id: id }, { $set: { is_delete: true } });
+        let result = await agency.update({ id: id }, { $set: { is_delete: true } });
         return generateSuccessResponse(result, 'Agency deleted', httpStatusCode.OK);
     } catch (error) {
         logger.error('Error while deleting agency', error);
         return generateErrorResponse(error, 'Error while deleting agency', httpStatusCode.INTERNAL_SERVER_ERROR);
     }
 }
+
 
 
 module.exports = {

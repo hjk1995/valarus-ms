@@ -27,6 +27,21 @@ const getAllClient = async (id) => {
     }
 }
 
+const fectchFromIncome = async (income) => {
+    try {
+        let result = await client.find({
+            totalbill: {
+                $gte: income
+            }
+        }, { '_id': 0, 'totalbill': 1, 'agencyid': 1, 'name': 1 }).populate('agencyid', { 'name': 1, '_id': 0 });
+        return generateSuccessResponse(result, 'Agency fetched', httpStatusCode.OK);
+    } catch (error) {
+        logger.error('Error while deleting agency', error);
+        return generateErrorResponse(error, 'Error while deleting agency', httpStatusCode.INTERNAL_SERVER_ERROR);
+    }
+
+}
+
 const updateClient = async (id, body) => {
     try {
         let result = await client.update({ clientid: id, is_delete: false }, { $set: body });
@@ -58,5 +73,6 @@ module.exports = {
     addClient,
     getAllClient,
     updateClient,
-    deleteClient
+    deleteClient,
+    fectchFromIncome
 }

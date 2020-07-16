@@ -20,13 +20,12 @@ const register = async (req, res) => {
 }
 const fetchClientFromIncome = async (req, res) => {
     try {
-        let clientResponse = null
+        let response = null
         if (req.body) {
-            let agencyId = await agencyService.addAgency(req.body.data.agency)
-            clientResponse = await clientService.addClient(Object.assign({}, req.body.data.client, { agencyid: agencyId.data[0]['_id'] }))
+            response = await clientService.fectchFromIncome(req.params.max_income)
         }
-        const statusCode = clientResponse.status_code || httpStatusCode.OK
-        return res.status(statusCode).send(clientResponse)
+        const statusCode = response.status_code || httpStatusCode.OK
+        return res.status(statusCode).send(response)
     } catch (error) {
         console.log(error)
         res.status(httpStatusCode.INTERNAL_SERVER_ERROR).send(generateSendErrorResponse(error, 'Error while inserting user data'))
