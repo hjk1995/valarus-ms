@@ -18,8 +18,8 @@ module.exports = {
             description: 'Local server'
         },
         {
-            url: 'https://app-dev.herokuapp.com/api/v1',
-            description: 'DEV Env'
+            url: 'http://34.72.47.80/api',
+            description: 'DEV Environment'
         }
     ],
     paths: {
