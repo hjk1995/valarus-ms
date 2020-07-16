@@ -1,6 +1,11 @@
-apps:
-  -
-    name: valarus-ms
-    restart_delay: 100
-    script: server.js
-    autorestart: true
+services:
+  app:
+    build: .
+    ports:
+    - "3001:3001"
+    depends_on:
+    - mongo
+  mongo:
+    image: mongo
+    ports:
+    - "27017:27017"
