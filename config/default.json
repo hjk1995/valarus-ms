@@ -4,7 +4,7 @@
         "mongo_port": 27017,
         "port": 3001,
         "default_database": "codify",
-        "mongo_url": "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false"
+        "mongo_url": "mongodb://localhost:27017/codify"
     },
     "bet_config": {
         "token": "51808-OrvUuHMLy2tuTk"
