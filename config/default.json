@@ -1,0 +1,16 @@
+{
+    "db_conf": {
+        "host": "127.0.0.1",
+        "mongo_port": 27017,
+        "port": 3001,
+        "default_database": "codify",
+        "mongo_url": "mongodb://localhost:27017/?readPreference=primary&appname=MongoDB%20Compass%20Community&ssl=false"
+    },
+    "bet_config": {
+        "token": "51808-OrvUuHMLy2tuTk"
+    },
+    "bet_api": {
+        "sb_inplay": "https://api.betsapi.com/v1/betfair/sb/inplay?sport_id={{sport_id}}&token={{token}}",
+        "sb_upcomming": "https://api.betsapi.com/v1/betfair/sb/upcoming?sport_id={{sport_id}}&page={{page}}&token={{token}}"
+    }
+}
