@@ -1,6 +1,6 @@
 'use strict'
 
-const { bcrypt, logger, httpStatusCode, generateSuccessResponse, generateErrorResponse } = require('../lib/utils');
+const { logger, httpStatusCode, generateSuccessResponse, generateErrorResponse } = require('../lib/utils');
 const client = require('../models/client');
 
 const addClient = async (body) => {
